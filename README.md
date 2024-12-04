@@ -1,8 +1,8 @@
 Spring Boot Project, gradle, 상품에 대한 캐시 기능, Redis와 MariaDB 이용, Redis의 Bloom Filter -> Redis Cache -> RDB(JPA MariaDB) 순서로 조회하도록 설계 
 
-curl -X POST http://localhost:8080/api/products -H Content-Type: application/json -d {"name":"Test Product","price":10000,"description":"This is a test product"}
-curl -X GET http://localhost:8080/api/products/1
-curl -X DELETE http://localhost:8080/api/products/1
+curl -X POST http://localhost:8080/api/products -H Content-Type: application/json -d {"name":"Test Product","price":10000,"description":"This is a test product"}   
+curl -X GET http://localhost:8080/api/products/1   
+curl -X DELETE http://localhost:8080/api/products/1   
 
 프로젝트의 기능은 처음 저장 후에 bloom, redis cache, db에 다 저장을 잘 하고 추후에 조회시 bloom에 조회하려고 했을 때 존재하지 않으면 bloom의 특성으로 인해 조회 결과가 없다고 판단하고, bloom의 특성상 있다고 판단할 경우에 cache를 조회하지만 오탐이 있을 경우엔 DB를 조회하는 형태
 
